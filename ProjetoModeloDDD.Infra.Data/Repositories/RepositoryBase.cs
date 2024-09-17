@@ -1,6 +1,4 @@
-﻿
-
-using ProjetoModeloDDD.Domain.Interfaces;
+﻿using ProjetoModeloDDD.Domain.Interfaces.Repositories;
 using ProjetoModeloDDD.Infra.Data.Contexto;
 using System;
 using System.Collections.Generic;
@@ -9,7 +7,7 @@ using System.Linq;
 
 namespace ProjetoModeloDDD.Infra.Data.Repositories
 {
-    public class RespositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
 
         protected ProjetoModeloContext Db = new ProjetoModeloContext();
@@ -21,7 +19,11 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (Db != null)
+            {   
+                Db.Dispose();
+            }
+            GC.SuppressFinalize(this);
         }
 
         public IEnumerable<TEntity> GetAll()

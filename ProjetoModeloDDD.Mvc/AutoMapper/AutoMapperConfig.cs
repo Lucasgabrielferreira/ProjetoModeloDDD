@@ -8,7 +8,7 @@ namespace ProjetoModeloDDD.Mvc.AutoMapper
         {
             Mapper.Initialize(x =>
             {
-                x.AddProfile<DomainToViewModelMappingProfile>();
+                x.AddProfile<ViewModelToDomainMappingProfile>();
                 x.AddProfile<DomainToViewModelMappingProfile>();
             });
         }

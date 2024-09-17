@@ -9,13 +9,14 @@ namespace ProjetoModeloDDD.Mvc.AutoMapper
     {
         public override string ProfileName
         {
-            get { return "ViewModelToDomainMappings"; }
+            get { return "DomainToViewModelMappings"; }
         }
-         
+
         protected override void Configure()
         {
-            Mapper.CreateMap<ClienteViewModel,Cliente>();
-            Mapper.CreateMap<ProdutoViewModel,Produto>();
+            // Mapeamento de Domain para ViewModel
+            Mapper.CreateMap<Cliente, ClienteViewModel>();
+            Mapper.CreateMap<Produto, ProdutoViewModel>();
         }
     }
 }

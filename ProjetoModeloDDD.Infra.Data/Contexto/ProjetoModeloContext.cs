@@ -48,7 +48,7 @@ namespace ProjetoModeloDDD.Infra.Data.Contexto
 
                 if (entry.State == EntityState.Modified)
                 {
-                    entry.Property("DataCadastri").IsModified = false;
+                    entry.Property("DataCadastro").IsModified = false;
                 }
             }
             return base.SaveChanges();
