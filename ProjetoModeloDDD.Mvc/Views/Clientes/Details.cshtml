@@ -1,50 +1,50 @@
 ﻿@model ProjetoModeloDDD.Mvc.ViewModels.ClienteViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Cliente";
 }
 
-<h2>Details</h2>
+<h2 class="mb-4">Detalhes do Cliente</h2>
 
-<div>
-    <h4>ClienteViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+<!-- Informações do Cliente -->
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Informações do Cliente</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Sobrenome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Sobrenome)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sobrenome)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sobrenome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ativo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ativo)
-        </dd>
-
-    </dl>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Ativo)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Ativo)
+            </dd>
+        </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClienteId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<!-- Botões de Ação -->
+<div class="mt-3">
+    <a href="@Url.Action("Edit", new { id = Model.ClienteId })" class="btn btn-warning">Editar</a>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Voltar para a Lista</a>
+</div>
