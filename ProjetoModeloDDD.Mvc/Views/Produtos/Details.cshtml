@@ -1,50 +1,58 @@
 ﻿@model ProjetoModeloDDD.Mvc.ViewModels.ProdutoViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Produto";
 }
 
-<h2>Details</h2>
+<h2 class="mb-4"><i class="bi bi-box-seam"></i> Detalhes do Produto</h2>
 
-<div>
-    <h4>ProdutoViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+<!-- Informações do Produto -->
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title"><i class="bi bi-card-list"></i> Informações do Produto</h4>
+        <hr />
+        <dl class="row">
+            <!-- Nome do Produto -->
+            <dt class="col-sm-3">
+                <i class="bi bi-tag"></i> @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+            <!-- Valor -->
+            <dt class="col-sm-3">
+                <i class="bi bi-currency-dollar"></i> @Html.DisplayNameFor(model => model.Valor)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Valor)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Valor)
-        </dt>
+            <!-- Disponível -->
+            <dt class="col-sm-3">
+                <i class="bi bi-check-circle"></i> @Html.DisplayNameFor(model => model.Disponivel)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Disponivel)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Valor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Disponivel)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Disponivel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ClienteId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ClienteId)
-        </dd>
-
-    </dl>
+            <!-- Cliente -->
+            <dt class="col-sm-3">
+                <i class="bi bi-person"></i> Cliente
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Cliente.Nome) <!-- Exibindo o nome do cliente associado -->
+            </dd>
+        </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdutoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<!-- Botões de Ação -->
+<div class="mt-3">
+    <a href="@Url.Action("Edit", new { id = Model.ProdutoId })" class="btn btn-warning">
+        <i class="bi bi-pencil"></i> Editar
+    </a>
+    <a href="@Url.Action("Index")" class="btn btn-secondary ms-2">
+        <i class="bi bi-arrow-left-circle"></i> Voltar para a Lista
+    </a>
+</div>

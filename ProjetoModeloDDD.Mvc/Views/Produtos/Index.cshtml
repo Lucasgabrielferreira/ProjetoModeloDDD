@@ -1,51 +1,50 @@
 ﻿@model IEnumerable<ProjetoModeloDDD.Mvc.ViewModels.ProdutoViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Produtos";
 }
 
-<h2>Index</h2>
+<h2 class="mb-4"><i class="bi bi-box"></i> Lista de Produtos</h2>
 
+<!-- Botão para criar novo produto -->
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Criar Novo Produto
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Disponivel)
-        </th>
-        <th>
-            @Html.DisplayName("Cliente")
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Disponivel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cliente.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProdutoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProdutoId })
-        </td>
-    </tr>
-}
-
+<!-- Tabela de Produtos -->
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Valor)</th>
+            <th>@Html.DisplayNameFor(model => model.Disponivel)</th>
+            <th>@Html.DisplayName("Cliente")</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Valor)</td>
+                <td>@Html.DisplayFor(modelItem => item.Disponivel)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cliente.Nome)</td>
+                <td>
+                    <!-- Botões de ação com ícones -->
+                    <a href="@Url.Action("Edit", new { id = item.ProdutoId })" class="btn btn-warning btn-sm">
+                        <i class="bi bi-pencil"></i> Editar
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.ProdutoId })" class="btn btn-info btn-sm ms-2">
+                        <i class="bi bi-info-circle"></i> Detalhes
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.ProdutoId })" class="btn btn-danger btn-sm ms-2">
+                        <i class="bi bi-trash"></i> Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

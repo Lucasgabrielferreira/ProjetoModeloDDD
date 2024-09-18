@@ -4,21 +4,22 @@
     ViewBag.Title = "Criar Cliente";
 }
 
-<h2 class="mb-4">Criar Novo Cliente</h2>
+<h2 class="mb-4"><i class="bi bi-person-plus"></i> Criar Novo Cliente</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="mb-3">
-        <h4>Detalhes do Cliente</h4>
+        <h4><i class="bi bi-card-list"></i> Detalhes do Cliente</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <!-- Campo Nome -->
         <div class="mb-3 row">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
                 @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
             </div>
@@ -27,7 +28,8 @@
         <!-- Campo Sobrenome -->
         <div class="mb-3 row">
             @Html.LabelFor(model => model.Sobrenome, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group">
+                <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
                 @Html.EditorFor(model => model.Sobrenome, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Sobrenome, "", new { @class = "text-danger" })
             </div>
@@ -36,7 +38,8 @@
         <!-- Campo Email -->
         <div class="mb-3 row">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
@@ -56,7 +59,9 @@
         <!-- Botão de Criação -->
         <div class="mb-3 row">
             <div class="col-sm-10 offset-sm-2">
-                <input type="submit" value="Criar" class="btn btn-primary" />
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i> Criar
+                </button>
             </div>
         </div>
     </div>
@@ -64,7 +69,9 @@
 
 <!-- Link para voltar à lista -->
 <div class="mt-3">
-    @Html.ActionLink("Voltar para a Lista", "Index", null, new { @class = "btn btn-secondary" })
+    <a href="@Url.Action("Index")" class="btn btn-secondary">
+        <i class="bi bi-arrow-left-circle"></i> Voltar para a Lista
+    </a>
 </div>
 
 @section Scripts {

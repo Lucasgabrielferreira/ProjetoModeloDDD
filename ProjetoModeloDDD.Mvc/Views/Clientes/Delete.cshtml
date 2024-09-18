@@ -4,26 +4,30 @@
     ViewBag.Title = "Excluir Cliente";
 }
 
-<h2 class="mb-4">Excluir Cliente</h2>
+<h2 class="mb-4 text-danger"><i class="bi bi-trash"></i> Excluir Cliente</h2>
 
 <h3 class="text-danger">Tem certeza de que deseja excluir este cliente?</h3>
 
 <!-- Informações do Cliente -->
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Detalhes do Cliente</h4>
+        <h4 class="card-title"><i class="bi bi-card-list"></i> Detalhes do Cliente</h4>
         <hr />
         <dl class="row">
-            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+            <!-- Nome -->
+            <dt class="col-sm-3"><i class="bi bi-person"></i> @Html.DisplayNameFor(model => model.Nome)</dt>
             <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
 
-            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Sobrenome)</dt>
+            <!-- Sobrenome -->
+            <dt class="col-sm-3"><i class="bi bi-person-badge"></i> @Html.DisplayNameFor(model => model.Sobrenome)</dt>
             <dd class="col-sm-9">@Html.DisplayFor(model => model.Sobrenome)</dd>
 
-            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+            <!-- Email -->
+            <dt class="col-sm-3"><i class="bi bi-envelope"></i> @Html.DisplayNameFor(model => model.Email)</dt>
             <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
 
-            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Ativo)</dt>
+            <!-- Ativo -->
+            <dt class="col-sm-3"><i class="bi bi-check-circle"></i> @Html.DisplayNameFor(model => model.Ativo)</dt>
             <dd class="col-sm-9">@Html.DisplayFor(model => model.Ativo)</dd>
         </dl>
     </div>
@@ -35,7 +39,11 @@
     @Html.AntiForgeryToken()
 
     <div class="mt-4">
-        <input type="submit" value="Excluir" class="btn btn-danger" />
-        <a href="@Url.Action("Index")" class="btn btn-secondary ms-2">Voltar para a Lista</a>
+        <button type="submit" class="btn btn-danger">
+            <i class="bi bi-trash"></i> Excluir
+        </button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary ms-2">
+            <i class="bi bi-arrow-left-circle"></i> Voltar para a Lista
+        </a>
     </div>
 }

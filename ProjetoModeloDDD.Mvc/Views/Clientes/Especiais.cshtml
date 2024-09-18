@@ -8,7 +8,9 @@
 
 <!-- Botão para criar um novo cliente -->
 <p>
-    <a href="@Url.Action("Create")" class="btn btn-primary">Criar Novo Cliente</a>
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Criar Novo Cliente
+    </a>
 </p>
 
 <!-- Tabela de clientes especiais -->
@@ -31,10 +33,16 @@
                 <td>@Html.DisplayFor(modelItem => item.Email)</td>
                 <td>@Html.DisplayFor(modelItem => item.Ativo)</td>
                 <td>
-                    <!-- Botões de ação para Editar, Detalhes e Excluir -->
-                    <a href="@Url.Action("Edit", new { id = item.ClienteId })" class="btn btn-warning btn-sm">Editar</a>
-                    <a href="@Url.Action("Details", new { id = item.ClienteId })" class="btn btn-info btn-sm ms-2">Detalhes</a>
-                    <a href="@Url.Action("Delete", new { id = item.ClienteId })" class="btn btn-danger btn-sm ms-2">Excluir</a>
+                    <!-- Botões de ação com ícones -->
+                    <a href="@Url.Action("Edit", new { id = item.ClienteId })" class="btn btn-warning btn-sm" title="Editar">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.ClienteId })" class="btn btn-info btn-sm ms-2" title="Ver Detalhes">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.ClienteId })" class="btn btn-danger btn-sm ms-2" title="Excluir">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
                 </td>
             </tr>
         }
